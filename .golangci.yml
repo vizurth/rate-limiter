@@ -1,0 +1,51 @@
+# .golangci.yml
+run:
+  timeout: 5m
+  tests: true
+
+linters-settings:
+  govet:
+    check-shadowing: true
+  gocyclo:
+    min-complexity: 15
+  dupl:
+    threshold: 100
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+  misspell:
+    locale: US
+  lll:
+    line-length: 140
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - performance
+      - style
+    disabled-checks:
+      - commentedOutCode
+
+linters:
+  disable-all: true
+  enable:
+    - errcheck      # Проверка обработки ошибок
+    - gosimple      # Упрощение кода
+    - govet         # Стандартные проверки
+    - ineffassign   # Неиспользуемые присваивания
+    - staticcheck   # Статический анализ
+    - typecheck     # Проверка типов
+    - unused        # Неиспользуемый код
+    - gofmt         # Форматирование
+    - goimports     # Импорты
+    - misspell      # Опечатки
+    - goconst       # Константы
+    - gocyclo       # Цикломатическая сложность
+    - dupl          # Дублирование кода
+    - lll           # Длина строк
+    - unparam       # Неиспользуемые параметры
+    - bodyclose     # HTTP response body close
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
