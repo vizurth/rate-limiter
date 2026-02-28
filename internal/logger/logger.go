@@ -28,7 +28,7 @@ func New(ctx context.Context) (context.Context, *Logger, error) {
 	return ctx, wrapped, nil
 }
 
-// GetOrCreateLoggerFromCtx возвращает логгер из контекста или создаёт новый
+// Get LoggerFromCtx возвращает логгер из контекста или создаёт новый
 func GetLoggerFromCtx(ctx context.Context) (*Logger, error) {
 	if l, ok := ctx.Value(KeyForLogger).(*Logger); ok {
 		return l, nil
